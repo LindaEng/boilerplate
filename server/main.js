@@ -1,8 +1,17 @@
 //listen port stuff
 //sync db??
+
+if (process.env.NODE_ENV === 'development') {
+  console.log('DEVELOPMENT MODE ACTIVATED!!!!')
+  require('../secret'); // this will mutate the process.env object with your secrets.
+}
+
+// console.log('HIIII')
 const { db } = require('./db')
 const app = require('./index')
 const PORT = process.env.PORT || 3000
+
+
 
 db.sync().then(() => {
   console.log('db synced')

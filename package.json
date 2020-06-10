@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server/main.js",
-    "start-dev": "webpack -w & nodemon server/main.js",
+    "start-dev": "NODE_ENV='development' webpack -w & NODE_ENV='development' nodemon server/main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -17,6 +17,7 @@
     "express-session": "^1.17.1",
     "lodash": "^4.17.15",
     "passport": "^0.4.1",
+    "passport-google-oauth": "^2.0.0",
     "pg": "^8.2.1",
     "pg-hstore": "^2.3.3",
     "react": "^16.13.1",

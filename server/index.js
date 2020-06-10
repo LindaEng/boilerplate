@@ -5,6 +5,7 @@ const volleyball = require('volleyball')
 const session = require('express-session')
 const passport = require('passport')
 const SequelizeStore = require('connect-session-sequelize')(session.Store)
+const { db } = require('./db')
 const dbStore = new SequelizeStore({ db:db })
 
 app.use(volleyball)
@@ -12,7 +13,7 @@ app.use(volleyball)
 //session middleware, store is optional:
 app.use(session({
   secret: process.env.SESSION_SECRET || 'A BIG SECRET',
-  store: dbstore,
+  store: dbStore,
   resave: false,
   saveUninitialized: false
 }))
