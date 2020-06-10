@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const User = require('../db/models/user')
+const passport = require('passport')
 
 router.put('/login', async(req, res, next) => {
   try {
@@ -43,5 +44,13 @@ router.get('/me', (req, res, next) => {
   //passport has attached the session user to the request object
   res.json(req.user)
 })
+
+router.get('/auth/google', passport.authenticate('google', { scope: 'email' }))
+
+router.get('/auth/google/callback',
+passport.authenticate('google', {
+  successRedirect: '/home', // or wherever
+  failureRedirect: '/' // or wherever
+}))
 
 module.exports = router

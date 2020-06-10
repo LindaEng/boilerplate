@@ -2,7 +2,6 @@
 //sync db??
 
 if (process.env.NODE_ENV === 'development') {
-  console.log('DEVELOPMENT MODE ACTIVATED!!!!')
   require('../secret'); // this will mutate the process.env object with your secrets.
 }
 
